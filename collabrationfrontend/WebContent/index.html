@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>		
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="UserController as ctrl">
+	<div ng-controller="HomeController as Hctrl">
+
+		<nav class="navbar navbar-inverse navbar-fixed-top" >
+			<div class="container-fluid">
+				<div class="navbar-header">
+			
+      <a class="navbar-brand" href="#/">JOBS PORTAL</a>
+   
+				</div>
+				
+     <div ng-show="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='employee'" style="color: blue;">				
+				<ul class="nav navbar-nav">
+					<li><a href="#/">Home</a></li>
+					
+					<li class="dropdown"><a class="dropdown-toggle"	data-toggle="dropdown">Blogs<span class="caret"></span></a>
+					
+						<ul class="dropdown-menu">
+							<li><a href="#/createBlog">Add New Blogs</a></li>
+							<li><a href="#/listBlog">Show List of Blogs</a></li>
+						</ul></li>
+					
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Job Opportunities<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							
+							<li><a href="#/search_job">Search Job</a></li>
+						   <li><a href="#/viewAppliedJobs">View Applied Job Details</a></li>
+						</ul></li>
+
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Friends<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/searchFriend">Search Friend</a></li>
+								<li><a href="#/friends">My Friends</a></li>
+								<li><a href="#/viewFriendRequest">My requests</a></li>
+						</ul></li>
+						
+						<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Event<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/eventsList">Events</a></li>
+							
+						</ul></li>
+
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Chat<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/chat_forum">Group Chat</a></li>
+							
+						</ul></li>
+						<div ng-controller="HomeController as ctrl" >
+		<div ng-hide="currentUser==''">
+			<div class="nav navbar-nav navbar-left" style="color: white;">Welcome : {{currentUser.name}}. &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+				 </div>
+				      
+				      <div class="nav navbar-nav navbar-right">
+		          <a href="#/myprofile" >My Profile</a>   &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; 
+		   
+		</div>
+		</div>
+						
+						
+						<div ng-show="currentUser.role=='admin'">
+					<li><a href="#/adminHome">Admin</a></li>
+					</div>
+				</ul></div>
+
+				<ul class="nav navbar-nav navbar-right">
+				
+					<div ng-hide="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='employee'">
+						<li><a href="#/register"><span
+								class="glyphicon glyphicon-user"></span> SIGN UP </a></li>
+						<li><a href="#/login"><span
+								class="glyphicon glyphicon-log-in"></span> LOGIN </a></li>
+					   </div>
+					   
+					<div ng-show="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser.role=='employee'">
+						<li><a ng-click="ctrl.logout()"><span
+								class="glyphicon glyphicon-log-out"></span>LOGOUT</a></li>
+	                         </div>				
+				</ul>
+			</div>
+		</nav>
+	</div></div>
+
+	<div class="jumbotron">
+		<hr color="blue" width="100%" size="30">
+		<div class="container">
+			<div ng-view></div>
+		</div>
+	</div>
+
+</body>
+
+<script src="app.js"></script>
+
+<script src="c_home/HomeController.js"></script>
+
+<script src="c_user/UserController.js"></script>
+<script src="c_user/UserService.js"></script>
+
+<script src="c_blog/BlogController.js"></script>
+<script src="c_blog/BlogService.js"></script>
+
+<script src="c_job/JobController.js"></script>
+<script src="c_job/JobService.js"></script>
+
+<script src="c_friend/FriendController.js"></script>
+<script src="c_friend/FriendService.js"></script>
+
+<script src="c_event/EventController.js"></script>
+<script src="c_event/EventService.js"></script>
+
+<script src="c_chat_forum/ChatForumController.js"></script>
+<script src="c_chat_forum/ChatForumService.js"></script>
+
+<script src="c_chat/ChatController.js"></script>
+<script src="c_chat/ChatService.js"></script>
+
+
+</html>

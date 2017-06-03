@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+   table {
+     
+      border-collapse: collapse;
+    width: 100%;
+   }
+   
+ th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #DB7093}
+
+th {
+    background-color: #DDA0DD;
+    color: white;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" ng-controller="JobController as ctrl">
+
+<div ng-repeat="job in ctrl.jobs">
+<div class="form-group">
+
+Job ID:<label>{{job.jobID}}</label><br>
+UserName:<label>{{job.userID}}</label><br>
+Status:<label>{{job.status}}</label><br>
+Remarks:<label>{{job.remarks}}</label><br>
+
+
+
+<br>
+</div>
+
+</div>
+</div>
+</body>
+</html>

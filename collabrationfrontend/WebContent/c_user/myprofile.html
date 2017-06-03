@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="container" ng-controller="UserController as ctrl">
+
+<button type="button" ng-click="ctrl.myprofile()"   class="btn btn-primary btn-sm">View your Profile</button>
+ &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+<button type="button" ng-click="getform = !getform" class="btn btn-primary btn-sm">Edit your Profile</button>
+<div class="form-group">
+<br>
+
+Username:<label>{{ctrl.user.name}}</label><br>
+Email:<label>{{ctrl.user.email}}</label><br>
+Password:<label>{{ctrl.user.password}}</label><br>
+Contact number:<label>{{ctrl.user.contact}}</label><br>
+Address:<label>{{ctrl.user.address}}</label><br>
+
+                 
+</div>
+
+<div class="formcontainer">
+<form ng-submit="ctrl.userupdate(user)" name="myForm" class="form-horizontal" ng-show="getform">
+<br>
+<label>Edit your profile...</label>
+
+<br>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="name">User Name</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.name" id="name" class="username form-control input-sm" placeholder="Enter your Name" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="mail">Email</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your Email" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="password">Password</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.password" id="password" class="username form-control input-sm" placeholder="Enter your password" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="contact">Mobile No:</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.contact" id="contact" class="mob_no form-control input-sm" placeholder="Enter your contact number" required />
+</div>
+</div>
+</div>
+
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="address">Address</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.address" id="address" class="username form-control input-sm" placeholder="Enter Address" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-actions floatRight">
+<input type="submit" value="Update Profile" class="btn btn-primary btn-sm">
+
+</div>
+</div>
+</form>
+</div></div>
+
+</body>
+</html>

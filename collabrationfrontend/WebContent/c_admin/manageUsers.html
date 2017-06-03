@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #ADD8E6}
+
+th {
+    background-color: #1E90FF;
+    color: white;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="nav navbar-nav navbar-left">
+
+
+                           <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Manage Jobs<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/manage_job">View applied Jobs</a></li>
+							
+							<li><a href="#/post_job">Post a new Job</a></li>
+							
+						</ul></li>  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+						
+						<a href="#/manage_users">Manage Users</a>   &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+						<a href="#/createEvent">Create event</a>  
+
+</div><br>
+
+<div class="container" ng-controller="UserController as ctrl">
+
+
+
+ <div class="row">
+   <div class="table-response">
+   <table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Email</th>	
+							<th>Contact</th>
+							<th>Address</th>
+							<th>Role</th>
+							<th>Status</th>
+							<th>Reason</th>
+							<th>To accept</th>
+							<th>To reject</th>
+						</tr>
+					</thead>
+					<tbody>
+				
+				
+							<tr ng-repeat="user in ctrl.users" class="success" ng-hide="user.id==currentUser.id">
+								<td>{{user.id}}</td>
+								<td>{{user.name}}</td>
+								<td>{{user.email}}</td>
+								<td>{{user.contact}}</td>
+								<td>{{user.address}}</td>
+								<td>{{user.role}}</td>
+								<td>{{user.status}}</td>	
+								<td>{{user.reason}}</td>		
+													
+				<td><button ng-hide="user.status=='A' || user.status=='R'" type="button" ng-click="ctrl.useraccept(user)" class="btn btn-info btn-sm"">Accept</button></td>
+				
+                <td><button ng-hide="user.status=='A' || user.status=='R'" type="button" ng-click="ctrl.userreject(user)" class="btn btn-info btn-sm"">Reject</button></td>
+					</tr>
+					
+				
+</tbody>
+</table>
+   </div>
+ </div>
+
+
+</div>
+
+</body>
+</html>

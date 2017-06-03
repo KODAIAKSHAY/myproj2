@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" ng-controller="EventController as ctrl">
+Welcome to Events
+{{event.id}}
+<br><br>
+<div ng-repeat="event in ctrl.events">
+<a href="#" ng-click="ctrl.getSelectedEvent(event.event_id)">Name : {{event.name}} - hosted at : {{event.venue}}</a>
+<br><br>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+   table {
+     
+      border-collapse: collapse;
+    width: 100%;
+   }
+   
+ th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #87CEFA}
+
+th {
+    background-color: 		#B0C4DE;
+    color: white;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Your new requests
+<div class="container" ng-controller="FriendController as ctrl">
+
+<div class="form-group has-feedback"></div>
+     
+     Search for Friend
+     
+     
+    <p><input type="text" ng-model="sear_text"></p>
+   <table>
+<tr >
+<th>Name</th>
+<th>Status</th>
+<th>Operation</th>
+
+</tr>
+<tr ng-repeat="myfriend in ctrl.myfriends | filter: sear_text">
+<td>{{myfriend.userID}}</td>
+<td>{{myfriend.status}}</td>
+<td align="center"><button ng-hide="friend.status=='A' || friend.status=='R'" type="button" 
+                            ng-click="ctrl.friendaccept(myfriend)" class="btn btn-primary btn-sm">Accept</button>
+                  <button ng-hide="friend.status=='A' || friend.status=='R'" type="button" 
+                            ng-click="ctrl.friendreject(myfriend)" class="btn btn btn-primary btn-sm">Reject</button></td>
+</tr>
+</table>
+           
+        
+          
+       </div>   
+</body>
+</html>
